@@ -15,7 +15,20 @@ class Search extends Component {
             onChange={this.props.handleChange}
           />
           <button onClick={this.props.handleSubmit}>Search</button>
-          <Link to="/results">Test</Link>
+          {this.props.currentResults.length > 1 && (
+            <Link to="/results">Test</Link>
+          )}
+          {this.props.currentResults.length === 1 && (
+            <Link to={`/result/${this.props.currentResults[0].SkiArea.id}`}>
+              Test
+            </Link>
+          )}
+          {this.props.currentResults.length === 0 && (
+            <p>
+              No Results Found. Please update your search to region or name of
+              resort.
+            </p>
+          )}
         </form>
       </div>
     );

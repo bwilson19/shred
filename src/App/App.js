@@ -8,18 +8,20 @@ import Result from '../Result/Result';
 import Header from '../Header/Header';
 import data from '../skiData.json';
 
-console.log(data);
-
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       searchString: '',
-      previousSearch: '',
-      currentResults: [],
+      previousSearch: null,
+      currentResults: [1, 1],
       initialSkiData: data,
       weatherData: [],
-      selectedResort: ''
+      selectedResort: {
+        data: '',
+        maps: '',
+        regions: ''
+      }
     };
   }
 
@@ -48,17 +50,15 @@ class App extends Component {
     });
   };
 
-  setSelectedResort = selectedResort => {
+  setSelectedResort = (selectedResort, maps, regions) => {
     this.setState({
-      selectedResort: selectedResort
-    });
-  };
-
-  // resetSearch = () => {
-  //   this.setState({
-  //     searchString: ''
-  //   });
-  // };
+      selectedResort: {
+        data: selectedResort,
+        maps: maps,
+        regions: regions
+      }
+    })
+    };
 
   render() {
     return (
@@ -67,6 +67,8 @@ class App extends Component {
           searchString={this.state.searchString}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
+          currentResults={this.state.currentResults}
+          previousSearch={this.state.previousSearch}
         />
         <main>
           <Switch>
@@ -79,15 +81,17 @@ class App extends Component {
                     searchString={this.state.searchString}
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit}
+                    currentResults={this.state.currentResults}
                   />
                 );
               }}
             />
             <Route
               path="/results"
-              render={() => {
+              render={routerProps => {
                 return (
                   <Results
+                   match={routerProps.match}
                     currentResults={this.state.currentResults}
                     previousSearch={this.state.previousSearch}
                   />

@@ -8,14 +8,15 @@ class Header extends Component {
     return (
       <header>
         <Link to="/">
-          <h1>SkiBase</h1>
+          <h1>Shred</h1>
         </Link>
         <nav>
-          <Search
+          {this.props.previousSearch && <Search
             searchString={this.props.searchString}
             handleChange={this.props.handleChange}
             handleSubmit={this.props.handleSubmit}
-          />
+            currentResults={this.props.currentResults}
+          />}
           <ul>
             <li>Login</li>
           </ul>

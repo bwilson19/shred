@@ -4,6 +4,7 @@ main input {
   padding: 1rem;
   border: 3px solid gray;
   border-radius: 2px;
+  background-color: rgb(229, 237, 250);
 }
 
 main .searchWindow {
@@ -37,7 +38,8 @@ main button {
   font-family: 'Poppins', sans-serif;
   font-size: 1rem;
   border: 3px solid gray;
-  background-color: rgb(182, 206, 250);
+  background: rgb(21,205,240);
+background: linear-gradient(180deg, rgba(21,205,240,1) 0%, rgba(6,140,153,1) 100%);
 }
 
 main button:focus{
