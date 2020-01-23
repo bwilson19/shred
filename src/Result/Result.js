@@ -60,7 +60,7 @@ class Result extends Component {
               <li>Acres: {resort.skiable_acreage} </li>
               <li>Average Yearly Snowfall: {resort.annual_snowfall}</li>
             </ul>
-            <a href={resort.official_website}>
+            <a href={resort.official_website} target='blank'>
               <button>Resort Website</button>
             </a>
           </div>
@@ -68,6 +68,7 @@ class Result extends Component {
             <img src={maps} alt={resort.name} />
           </div>
         </div>
+        <div className='weather'><h1>Weather Report</h1></div>
         <div onClick={this.zoomToggle} className={this.state.zoomClass}>
           <img id="zoomedImage" src={maps} alt={resort.name} />
         </div>
