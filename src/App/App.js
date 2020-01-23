@@ -46,7 +46,7 @@ class App extends Component {
 
   handleChange = event => {
     this.setState({
-      [event.target.id]: event.target.value
+      searchString: event.target.value
     });
   };
 
@@ -58,7 +58,7 @@ class App extends Component {
         regions: regions
       }
     })
-    };
+  };
 
   render() {
     return (
@@ -91,7 +91,7 @@ class App extends Component {
               render={routerProps => {
                 return (
                   <Results
-                   match={routerProps.match}
+                    match={routerProps.match}
                     currentResults={this.state.currentResults}
                     previousSearch={this.state.previousSearch}
                   />

@@ -3,7 +3,7 @@
   height: 70vh;
   margin-top: 10vh;
   background-color: rgb(235, 235, 235);
-  overflow: scroll;
+  overflow: auto;
 }
 
 .resultsSubheader {

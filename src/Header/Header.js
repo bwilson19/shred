@@ -11,12 +11,12 @@ class Header extends Component {
           <h1>Shred</h1>
         </Link>
         <nav>
-          {this.props.previousSearch && <Search
+          {/* {this.props.previousSearch && <Search
             searchString={this.props.searchString}
             handleChange={this.props.handleChange}
             handleSubmit={this.props.handleSubmit}
             currentResults={this.props.currentResults}
-          />}
+          />} */}
           <ul>
             <li>Login</li>
           </ul>

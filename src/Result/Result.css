@@ -1,5 +1,53 @@
 .resultWindow {
   width: 100vw;
-  min-height: 100vh;
+  min-height: 150vh;
   background-color: rgb(241, 241, 241);
+}
+
+.resultContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.skiMap img {
+  max-width: 50vw;
+  cursor: zoom-in;
+}
+
+.resortInfo {
+  background-color: rgb(54, 54, 54);
+  color: white;
+  padding: 4rem;
+}
+
+.resortInfo h1 {
+  line-height: 1rem;
+}
+
+.resortInfo ul {
+  padding: 0;
+}
+
+.resortInfo button {
+  margin: 2rem auto;
+}
+
+.show {
+  display: block;
+  cursor: zoom-out;
+  position: absolute;
+  top: 2vh;
+  left: 5vw;
+  right: 5vw;
+  z-index: 2;
+  box-shadow: 10px 10px 100vw 100vw rgba(0, 0, 0, 0.7);
+}
+
+#zoomedImage {
+  max-width: 90vw;
+}
+
+.hide {
+  display: none;
 }
