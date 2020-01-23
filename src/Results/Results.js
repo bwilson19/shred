@@ -8,18 +8,24 @@ class Results extends Component {
       return (
         <div className="results" key={results.SkiArea.id}>
           <Link to={`/result/${results.SkiArea.id}`}>
-            <p>{results.SkiArea.name}</p>
+            {results.Region[0] !== undefined && (
+              <p>
+                {results.SkiArea.name} ({results.Region[0].name})
+              </p>
+            )}
           </Link>
         </div>
       );
     });
     return (
       <div className="resultsWindow">
-        <h3>
-          {this.props.currentResults.length} Results for "
-          {this.props.previousSearch}"
-        </h3>
-        <div>{results}</div>
+        <div className="resultsSubheader">
+          <h3>
+            {this.props.currentResults.length} Results for "
+            {this.props.previousSearch}"
+          </h3>
+        </div>
+        <div className="resultsList">{results}</div>
       </div>
     );
   }

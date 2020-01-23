@@ -25,13 +25,15 @@ class App extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const searchedResults = this.state.initialSkiData.filter(result =>
-      // result.Region[0].name
-      //   .toLowerCase()
-      //   .includes(this.state.searchString.toLowerCase()) ||
-      result.SkiArea.name
-        .toLowerCase()
-        .includes(this.state.searchString.toLowerCase())
+    const searchedResults = this.state.initialSkiData.filter(
+      result =>
+        (result.Region[0] !== undefined &&
+          result.Region[0].name
+            .toLowerCase()
+            .includes(this.state.searchString.toLowerCase())) ||
+        result.SkiArea.name
+          .toLowerCase()
+          .includes(this.state.searchString.toLowerCase())
     );
     this.setState({
       currentResults: searchedResults,

@@ -22,7 +22,7 @@ class Result extends Component {
 
   render() {
     return (
-      <div className="ResultWindow">
+      <div className="resultWindow">
         <h1>Result</h1>
       </div>
     );
