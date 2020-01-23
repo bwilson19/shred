@@ -1,0 +1,44 @@
+header {
+  color: black;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 1);
+  padding: 0 2rem;
+  font-size: 0.7rem;
+}
+
+header a {
+  text-decoration: none;
+  color: black;
+}
+
+header a:hover {
+  color: blue;
+}
+
+header ul {
+  list-style: none;
+  font-size: 1rem;
+}
+
+header button {
+  font-family: 'Poppins', sans-serif;
+  margin-left: 0.3rem;
+  padding: 0.3rem;
+  border-radius: 2px;
+}
+
+header input::placeholder {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.6rem;
+}
+
+header input {
+  width: 20vw;
+  height: 1vh;
+  padding: 0.5rem;
+}

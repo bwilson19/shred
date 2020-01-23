@@ -1,0 +1,50 @@
+main input {
+  width: 40vw;
+  height: 2vh;
+  padding: 1rem;
+  border: 3px solid gray;
+  border-radius: 2px;
+}
+
+
+
+main .searchWindow {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 2rem;
+  margin: 20vh 10vw 0 10vw;
+  min-width: 60vw;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+main input::placeholder {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+}
+
+
+
+main button {
+  line-height: 2vh;
+  padding: 1rem;
+  min-width: 10vw;
+  margin-left: 2rem;
+  border-radius: 4px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  border: 3px solid gray;
+}
+
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+    cursor: pointer;
+}
