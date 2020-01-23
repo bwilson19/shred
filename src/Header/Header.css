@@ -28,7 +28,7 @@ header ul {
 header button {
   font-family: 'Poppins', sans-serif;
   margin-left: 0.3rem;
-  padding: 0.3rem;
+  padding: 0.4rem 0.3rem 0.3rem 0.3rem;
   border-radius: 2px;
 }
 
@@ -39,6 +39,6 @@ header input::placeholder {
 
 header input {
   width: 20vw;
-  height: 1vh;
+  height: 1.6vh;
   padding: 0.5rem;
 }

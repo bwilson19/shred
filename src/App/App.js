@@ -4,52 +4,51 @@ import '../Search/Search.css';
 import { Route, Switch } from 'react-router-dom';
 import Search from '../Search/Search';
 import Results from '../Results/Results';
+import Result from '../Result/Result';
 import Header from '../Header/Header';
-import data from '../example.json';
+import data from '../skiData.json';
 
-const proxyUrl = 'https://cors-anywhere.herokuapp.com/',
-  targetUrl = 'https://skimap.org/SkiAreas/index.json';
+console.log(data);
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       searchString: '',
+      previousSearch: '',
       currentResults: [],
-      skiData: data,
-      weatherData: []
+      initialSkiData: data,
+      weatherData: [],
+      selectedResort: ''
     };
   }
 
-  // componentDidMount() {
-  //   fetch(proxyUrl + targetUrl)
-  //     .then(response => response.json())
-  //     .then(response => {
-  //       console.log(response)
-  //       this.setState({
-  //         skiData: response
-  //       })
-  //     })
-  //     .catch(err => {
-  //       console.error(err);
-  //     });
-  // }
-
   handleSubmit = event => {
     event.preventDefault();
-    const searchedResults = this.state.skiData.filter(data =>
-      data.Region[0].name
+    const searchedResults = this.state.initialSkiData.filter(result =>
+      // result.Region[0].name
+      //   .toLowerCase()
+      //   .includes(this.state.searchString.toLowerCase()) ||
+      result.SkiArea.name
         .toLowerCase()
         .includes(this.state.searchString.toLowerCase())
     );
     this.setState({
-      currentResults: searchedResults
+      currentResults: searchedResults,
+      previousSearch: this.state.searchString,
+      searchString: ''
     });
   };
 
   handleChange = event => {
     this.setState({
       [event.target.id]: event.target.value
+    });
+  };
+
+  setSelectedResort = selectedResort => {
+    this.setState({
+      selectedResort: selectedResort
     });
   };
 
@@ -85,9 +84,26 @@ class App extends Component {
             <Route
               path="/results"
               render={() => {
-                return <Results currentResults={this.state.currentResults} />;
+                return (
+                  <Results
+                    currentResults={this.state.currentResults}
+                    previousSearch={this.state.previousSearch}
+                  />
+                );
               }}
             />
+            <Route
+              path="/result/:id"
+              render={routerProps => {
+                return (
+                  <Result
+                    match={routerProps.match}
+                    selectedResort={this.state.selectedResort}
+                    setSelectedResort={this.setSelectedResort}
+                  />
+                );
+              }}
+            ></Route>
           </Switch>
         </main>
       </>
