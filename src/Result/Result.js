@@ -25,7 +25,7 @@ class Result extends Component {
         );
       })
       .catch(err => {
-        console.error(err);
+        alert(err);
       });
   }
 
@@ -33,18 +33,22 @@ class Result extends Component {
     const key = process.env.REACT_APP_WEATHER_KEY;
     const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${this.props.selectedResort.lat}&lon=${this.props.selectedResort.long}&APPID=${key}`;
 
-    fetch(weatherUrl)
-      .then(response => response.json())
-      .then(response => {
-        console.log(response);
-      })
-      .catch(err => {
-        console.error(err);
-      });
+    if (!this.props.weatherData.name) {
+      fetch(weatherUrl)
+        .then(response => response.json())
+        .then(response => {
+          console.log(response);
+          this.props.setWeather(response);
+        })
+        .catch(err => {
+          alert(err);
+        });
+    }
   }
 
   componentWillUnmount() {
     this.props.setSelectedResort('', '', '', '', '');
+    this.props.setWeather('');
   }
 
   zoomToggle = () => {
@@ -66,16 +70,29 @@ class Result extends Component {
 
     return (
       <div className="resultWindow">
+        <div>
+          <a href="#weather">Weather</a>
+        </div>
         <div className="resultContent">
           <div className="resortInfo">
             <h1>{resort.name}</h1>
             <h2>{region}</h2>
-            <h3>Opened: {resort.opening_year}</h3>
             <ul>
-              <li>Peak Elevation: {resort.top_elevation}</li>
-              <li>Lifts: {resort.lift_count} </li>
-              <li>Acres: {resort.skiable_acreage} </li>
-              <li>Average Yearly Snowfall: {resort.annual_snowfall}</li>
+              {resort.opening_year && (
+                <li> Resort Opened: {resort.opening_year}</li>
+              )}
+              {resort.top_elevation && (
+                <li>Peak Elevation: {resort.top_elevation}</li>
+              )}
+              {resort.longest_run && <li>Longest Run: {resort.longest_run}</li>}
+              {resort.run_count && <li>Runs: {resort.run_count}</li>}
+              {resort.lift_count && <li>Lifts: {resort.lift_count} </li>}
+              {resort.skiable_acreage && (
+                <li>Acres: {resort.skiable_acreage} </li>
+              )}
+              {resort.annual_snowfall && (
+                <li>Average Yearly Snowfall: {resort.annual_snowfall}</li>
+              )}
             </ul>
             <a href={resort.official_website} target="blank">
               <button>Resort Website</button>
@@ -86,8 +103,25 @@ class Result extends Component {
             {!maps && <img src={noMapImage} alt="No map found" />}
           </div>
         </div>
-        <div className="weather">
+        <div id="weather" className="weather">
           <h1>Weather Report</h1>
+          <table>
+            <thead>
+              <tr>{/* <h1>Weather updated at: {this.props</h1> */}</tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Station Name</td>
+                <td>Current Conditions</td>
+                <td>Current Temperature</td>
+              </tr>
+              <tr>
+                <td>{this.props.weatherData.name}</td>
+                <td></td>
+                <td>{this.props.weatherData.name}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         {maps && (
           <div onClick={this.zoomToggle} className={this.state.zoomClass}>

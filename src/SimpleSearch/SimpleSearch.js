@@ -6,7 +6,7 @@ class SimpleSearch extends Component {
   render() {
     return (
       <>
-        <div className="searchWindow">
+        <div className="simpleSearchWindow">
           <div>
             <form className="searchBar">
               <input

@@ -16,7 +16,7 @@ class App extends Component {
       previousSearch: '',
       currentResults: [1, 1],
       initialSkiData: data,
-      weatherData: [],
+      weatherData: '',
       selectedResort: {
         data: '',
         maps: '',
@@ -61,6 +61,12 @@ class App extends Component {
         lat: lat,
         long: long
       }
+    });
+  };
+
+  setWeather = weatherData => {
+    this.setState({
+      weatherData: weatherData
     });
   };
 
@@ -112,6 +118,8 @@ class App extends Component {
                     match={routerProps.match}
                     selectedResort={this.state.selectedResort}
                     setSelectedResort={this.setSelectedResort}
+                    setWeather={this.setWeather}
+                    weatherData={this.state.weatherData}
                   />
                 );
               }}

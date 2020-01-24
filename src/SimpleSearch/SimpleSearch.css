@@ -1,13 +1,8 @@
-header input::placeholder {
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.6rem;
-}
-
-header input {
-  width: 20vw;
-  height: 1.6vh;
-  padding: 0.5rem;
-  background-color: rgb(200, 230, 250);
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.6rem;
+.simpleSearchWindow{
+ text-align: center;
+  background-color: rgb(219, 218, 218);
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }

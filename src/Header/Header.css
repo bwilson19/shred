@@ -7,8 +7,8 @@ header {
   align-items: center;
   justify-content: space-between;
   background-color: rgb(255, 255, 255);
-  padding: 0 2rem;
   font-size: 0.7rem;
+  width: 100vw;
 }
 
 header a {
@@ -19,6 +19,7 @@ header a {
 header h1 {
   font-family: 'Playfair Display', serif;
   text-transform: uppercase;
+  padding: 0rem 2rem;
 }
 
 header a:hover {
@@ -30,6 +31,7 @@ header ul {
   font-size: 1rem;
   display: flex;
   flex-direction: row;
+  padding: 0rem 2rem;
 }
 
 header li {

@@ -33,16 +33,22 @@
 }
 
 .resortInfo h2 {
-  line-height: 0.1rem;
-  margin-bottom: 10vh;
+  line-height: 0.2rem;
+  margin-bottom: 5vh;
 }
 .resortInfo h3 {
   line-height: 0.5rem;
   margin-bottom: 5vh;
+  color: rgb(182, 237, 255)
 }
 
 .resortInfo ul {
   padding: 0;
+  list-style: none;
+  color: rgb(182, 237, 255)
+}
+.resortInfo li {
+  line-height: 2rem;
 }
 
 .resortInfo button {
