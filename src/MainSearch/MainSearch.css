@@ -11,7 +11,7 @@ input {
 
 .searchWindow {
   text-align: center;
-  background-color: rgb(237, 238, 250, .6);
+  background-color: rgba(255, 255, 255, 0.6);
   padding: 2rem;
   min-width: 60vw;
   border-radius: 10px;
@@ -64,7 +64,7 @@ header input {
   width: 20vw;
   height: 1.6vh;
   padding: 0.5rem;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(200, 230, 250);
   font-family: 'Poppins', sans-serif;
   font-size: 0.6rem;
 }

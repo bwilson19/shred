@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import '../Search/Search.css';
+import '../MainSearch/MainSearch.css';
 import { Route, Switch } from 'react-router-dom';
-import Search from '../Search/Search';
+import MainSearch from '../MainSearch/MainSearch';
 import Results from '../Results/Results';
 import Result from '../Result/Result';
 import Header from '../Header/Header';
@@ -13,7 +13,7 @@ class App extends Component {
     super(props);
     this.state = {
       searchString: '',
-      previousSearch: null,
+      previousSearch: '',
       currentResults: [1, 1],
       initialSkiData: data,
       weatherData: [],
@@ -41,8 +41,8 @@ class App extends Component {
     );
     this.setState({
       currentResults: searchedResults,
-      previousSearch: this.state.searchString,
-      searchString: ''
+      searchString: '',
+      previousSearch: this.state.searchString
     });
   };
 
@@ -81,7 +81,7 @@ class App extends Component {
               path="/"
               render={() => {
                 return (
-                  <Search
+                  <MainSearch
                     searchString={this.state.searchString}
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit}
@@ -91,13 +91,15 @@ class App extends Component {
               }}
             />
             <Route
-              path="/results"
+              path="/results/:searchString"
               render={routerProps => {
                 return (
                   <Results
                     match={routerProps.match}
                     currentResults={this.state.currentResults}
                     previousSearch={this.state.previousSearch}
+                    handleChange={this.handleChange}
+                    handleSubmit={this.handleSubmit}
                   />
                 );
               }}

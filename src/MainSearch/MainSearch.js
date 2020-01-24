@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './Search.css';
+import './MainSearch.css';
 
-class Search extends Component {
+class MainSearch extends Component {
   render() {
     return (
       <>
@@ -25,8 +25,8 @@ class Search extends Component {
                 onChange={this.props.handleChange}
                 onInput={this.props.handleSubmit}
               />
-              {this.props.currentResults.length > 1 && (
-                <Link to="/results">
+              {this.props.currentResults.length > 1 && this.props.searchString && (
+                <Link to={`/results/${this.props.searchString}`}>
                   <button>Search</button>
                 </Link>
               )}
@@ -49,4 +49,4 @@ class Search extends Component {
   }
 }
 
-export default Search;
+export default MainSearch;

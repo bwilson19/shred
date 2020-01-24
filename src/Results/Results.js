@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Results.css';
 import { Link } from 'react-router-dom';
+import SimpleSearch from '../SimpleSearch/SimpleSearch'
 
 class Results extends Component {
   render() {
@@ -20,6 +21,12 @@ class Results extends Component {
     return (
       <div className='resultsContainer'>
       <div className="resultsWindow">
+          <SimpleSearch
+            searchString={this.props.searchString}
+            handleChange={this.props.handleChange}
+            handleSubmit={this.props.handleSubmit}
+            currentResults={this.props.currentResults}
+          />
         <div className="resultsSubheader">
           <h3>
             Found {this.props.currentResults.length} results for "
