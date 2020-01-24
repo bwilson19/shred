@@ -20,7 +20,9 @@ class App extends Component {
       selectedResort: {
         data: '',
         maps: '',
-        regions: ''
+        regions: '',
+        lat: '',
+        long: ''
       }
     };
   }
@@ -50,14 +52,16 @@ class App extends Component {
     });
   };
 
-  setSelectedResort = (selectedResort, maps, regions) => {
+  setSelectedResort = (selectedResort, maps, regions, lat, long) => {
     this.setState({
       selectedResort: {
         data: selectedResort,
         maps: maps,
-        regions: regions
+        regions: regions,
+        lat: lat,
+        long: long
       }
-    })
+    });
   };
 
   render() {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Result.css';
+import noMapImage from '../images/noMapImage.png';
 
 class Result extends Component {
   constructor(props) {
@@ -10,15 +11,17 @@ class Result extends Component {
   }
 
   componentDidMount() {
-    const url = `https://skimap.org/SkiAreas/view/${this.props.match.params.id}.json`;
+    const skiUrl = `https://skimap.org/SkiAreas/view/${this.props.match.params.id}.json`;
 
-    fetch(url)
+    fetch(skiUrl)
       .then(response => response.json())
       .then(response => {
         this.props.setSelectedResort(
           response,
-          response.ski_maps[0].media.image.url,
-          response.regions[0].name
+          response.ski_maps[0].media.sizes[0].url,
+          response.regions[0].name,
+          response.latitude,
+          response.longitude
         );
       })
       .catch(err => {
@@ -26,8 +29,22 @@ class Result extends Component {
       });
   }
 
+  componentDidUpdate() {
+    const key = process.env.REACT_APP_WEATHER_KEY;
+    const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${this.props.selectedResort.lat}&lon=${this.props.selectedResort.long}&APPID=${key}`;
+
+    fetch(weatherUrl)
+      .then(response => response.json())
+      .then(response => {
+        console.log(response);
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  }
+
   componentWillUnmount() {
-    this.props.setSelectedResort('');
+    this.props.setSelectedResort('', '', '', '', '');
   }
 
   zoomToggle = () => {
@@ -60,18 +77,23 @@ class Result extends Component {
               <li>Acres: {resort.skiable_acreage} </li>
               <li>Average Yearly Snowfall: {resort.annual_snowfall}</li>
             </ul>
-            <a href={resort.official_website} target='blank'>
+            <a href={resort.official_website} target="blank">
               <button>Resort Website</button>
             </a>
           </div>
           <div onClick={this.zoomToggle} className="skiMap">
-            <img src={maps} alt={resort.name} />
+            {maps && <img src={maps} alt={resort.name} />}
+            {!maps && <img src={noMapImage} alt="No map found" />}
           </div>
         </div>
-        <div className='weather'><h1>Weather Report</h1></div>
-        <div onClick={this.zoomToggle} className={this.state.zoomClass}>
-          <img id="zoomedImage" src={maps} alt={resort.name} />
+        <div className="weather">
+          <h1>Weather Report</h1>
         </div>
+        {maps && (
+          <div onClick={this.zoomToggle} className={this.state.zoomClass}>
+            <img id="zoomedImage" src={maps} alt={resort.name} />
+          </div>
+        )}
       </div>
     );
   }

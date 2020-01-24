@@ -6,7 +6,7 @@ header {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: rgb(237, 238, 250);
   padding: 0 2rem;
   font-size: 0.7rem;
 }
@@ -14,6 +14,11 @@ header {
 header a {
   text-decoration: none;
   color: black;
+}
+
+header h1 {
+  font-family: 'Playfair Display', serif;
+  text-transform: uppercase;
 }
 
 header a:hover {
@@ -25,8 +30,8 @@ header ul {
   font-size: 1rem;
 }
 
-header li:hover{
- color: rgb(121, 121, 190);
+header li:hover {
+  color: rgb(121, 121, 190);
   cursor: pointer;
 }
 

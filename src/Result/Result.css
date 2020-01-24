@@ -14,6 +14,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  background-color: rgb(54, 54, 54);
 }
 
 .skiMap img {
@@ -31,13 +32,35 @@
   min-height: 70vh;
 }
 
+.resortInfo h2 {
+  line-height: 0.1rem;
+  margin-bottom: 10vh;
+}
+.resortInfo h3 {
+  line-height: 0.5rem;
+  margin-bottom: 5vh;
+}
+
 .resortInfo ul {
   padding: 0;
 }
 
 .resortInfo button {
-  margin: 2rem auto;
+  margin: 2rem;
   font-size: 1vw;
+  line-height: 2vh;
+  padding: 1rem 1rem 1.1rem 1rem;
+  min-width: 15vw;
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  border: 3px solid gray;
+  background: rgb(21, 205, 240);
+  background: linear-gradient(
+    180deg,
+    rgba(21, 205, 240, 1) 0%,
+    rgba(6, 140, 153, 1) 100%
+  );
 }
 
 .show {

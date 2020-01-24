@@ -18,14 +18,16 @@ class Results extends Component {
       );
     });
     return (
+      <div className='resultsContainer'>
       <div className="resultsWindow">
         <div className="resultsSubheader">
           <h3>
-            {this.props.currentResults.length} Results for "
+            Found {this.props.currentResults.length} results for "
             {this.props.previousSearch}"
           </h3>
         </div>
         <div className="resultsList">{results}</div>
+      </div>
       </div>
     );
   }
