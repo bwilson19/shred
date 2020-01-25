@@ -12,7 +12,7 @@ class MainSearch extends Component {
         <div className="searchWindow">
           <div>
             <h3>
-              Gather up-to-date information about 1000's of ski resorts around
+              Gather real-time information about 1000's of ski resorts around
               the world.<br></br>Start your search below!
             </h3>
           </div>

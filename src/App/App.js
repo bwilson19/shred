@@ -12,11 +12,18 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      newUserName: '',
+      storedUserName: '',
       searchString: '',
       previousSearch: '',
       currentResults: [1, 1],
       initialSkiData: data,
-      weatherData: '',
+      weatherData: {
+        data: '',
+        condition: '',
+        temp: '',
+        wind: ''
+      },
       selectedResort: {
         data: '',
         maps: '',
@@ -64,9 +71,34 @@ class App extends Component {
     });
   };
 
-  setWeather = weatherData => {
+  setWeather = (weatherData, condition, temp, wind) => {
     this.setState({
-      weatherData: weatherData
+      weatherData:{
+      data: weatherData,
+      condition: condition,
+      temp: temp,
+      wind: wind
+      }
+    });
+  };
+
+  changeUserName = event => {
+    this.setState({
+      newUserName: event.target.value
+    });
+  };
+
+  storeName = event => {
+    event.preventDefault();
+    this.setState({
+      storedUserName: this.state.newUserName,
+      newUserName: ''
+    });
+  };
+
+  resetStoredName = () => {
+    this.setState({
+      storedUserName: ''
     });
   };
 
@@ -79,6 +111,11 @@ class App extends Component {
           handleSubmit={this.handleSubmit}
           currentResults={this.state.currentResults}
           previousSearch={this.state.previousSearch}
+          storeName={this.storeName}
+          changeUserName={this.changeUserName}
+          newUserName={this.state.newUserName}
+          storedUserName={this.state.storedUserName}
+          resetStoredName={this.resetStoredName}
         />
         <main>
           <Switch>
