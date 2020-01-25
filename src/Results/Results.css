@@ -19,8 +19,12 @@
 
 .resultsContainer {
   width: 100vw;
-  background-image: url('../images/resultsbg.jpg');
-  background-color: black;
+  background: rgb(54, 54, 54);
+  background: linear-gradient(
+    180deg,
+     rgba(54, 54, 54, 1) 0%,
+    rgb(146, 146, 146) 100%
+  );
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;

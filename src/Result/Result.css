@@ -1,8 +1,12 @@
 .resultWindow {
   width: 100vw;
-  min-height: 150vh;
-  background-image: url('../images/resultsbg.jpg');
-  background-color: black;
+  height: 150%;
+  background: rgb(54, 54, 54);
+  background: linear-gradient(
+    180deg,
+    rgba(54, 54, 54, 1) 0%,
+    rgb(146, 146, 146) 100%
+  );
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -15,7 +19,12 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  background-color: rgb(54, 54, 54);
+  background: rgb(54, 54, 54);
+  background: linear-gradient(
+    180deg,
+    rgb(52, 164, 238) 0%,
+    rgb(144, 210, 248) 100%
+  );
 }
 
 .skiMap img {
@@ -25,8 +34,13 @@
 }
 
 .resortInfo {
-  background-color: rgb(54, 54, 54);
-  color: white;
+  background: rgb(54, 54, 54);
+  background: linear-gradient(
+    180deg,
+    rgb(52, 164, 238) 0%,
+    rgb(144, 210, 248) 100%
+  );
+  color: black;
   padding: 2rem;
   font-size: 1vw;
   width: 20vw;
@@ -40,7 +54,7 @@
 .resortInfo ul {
   padding: 0;
   list-style: none;
-  color: rgb(182, 237, 255);
+  color: rgb(3, 48, 63);
 }
 .resortInfo li {
   line-height: 2rem;
@@ -77,14 +91,18 @@
 }
 
 .weatherWindow {
-  background-color: rgb(83, 83, 83);
+  background: linear-gradient(
+    180deg,
+    rgb(144, 210, 248) 0%,
+    rgb(253, 253, 253) 100%
+  );
   width: 70vw;
   padding: 2rem;
   font-size: 1vw;
 }
 
 .weatherWindow h1 {
-  color: white;
+  color: black;
   text-align: center;
 }
 
@@ -111,7 +129,7 @@ tr {
 }
 
 th {
-  background-color: #4caf50;
+  background-color: rgb(7, 100, 119);
   color: white;
 }
 
@@ -122,13 +140,18 @@ th {
   justify-content: space-evenly;
 }
 
+.weatherWindow {
+  margin-top: 5px;
+}
+
 .currentCondition {
   background-color: white;
-  border: 5px solid #4caf50;
+  border: 5px solid rgb(7, 100, 119);
   text-align: center;
   padding: 2rem;
 }
 
 .weatherLogo {
   width: 80px;
+  background-color: rgb(21, 205, 240);
 }

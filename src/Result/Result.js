@@ -98,9 +98,11 @@ class Result extends Component {
       var date = a.getDate();
       var hour = a.getHours();
       var min = a.getMinutes();
-      var sec = a.getSeconds();
-      var time =
-        month + ' ' + date + ', ' + year + ' ' + hour + ':' + min + ':' + sec;
+      if (min < 10) {
+        var time = month + ' ' + date + ', ' + year + ' ' + hour + ':0' + min;
+      } else {
+        time = month + ' ' + date + ', ' + year + ' ' + hour + ':' + min;
+      }
       return time;
     }
     const convertedTime = timeConverter(weather.data.dt);
@@ -128,9 +130,11 @@ class Result extends Component {
                 <li>Average Yearly Snowfall: {resort.annual_snowfall}</li>
               )}
             </ul>
-            <a href={resort.official_website} target="blank">
-              <button>Resort Website</button>
-            </a>
+            {resort.official_website && (
+              <a href={resort.official_website} target="blank">
+                <button>Resort Website</button>
+              </a>
+            )}
           </div>
           <div onClick={this.zoomToggle} className="skiMap">
             {maps && <img src={maps} alt={resort.name} />}
@@ -139,16 +143,18 @@ class Result extends Component {
         </div>
         {this.props.weatherData && (
           <div className="weatherWindow">
-            <h1>Weather Report (Updated {convertedTime})</h1>
+            <h1>Current Weather (Updated {convertedTime})</h1>
             <div className="weatherContent">
               <div>
                 <table>
                   <thead>
-                    <th>Station Name</th>
-                    <th>Current Temperature</th>
-                    <th>High</th>
-                    <th>Low</th>
-                    <th>Wind Speed</th>
+                    <tr>
+                      <th>Station Name</th>
+                      <th>Current Temperature</th>
+                      <th>High</th>
+                      <th>Low</th>
+                      <th>Wind Speed</th>
+                    </tr>
                   </thead>
                   <tbody>
                     <tr>
