@@ -13,7 +13,7 @@ class App extends Component {
     super(props);
     this.state = {
       newUserName: '',
-      storedUserName: '',
+      storedUserName: localStorage.getItem('storedUserName') || '',
       searchString: '',
       previousSearch: '',
       currentResults: [1, 1],
@@ -73,11 +73,11 @@ class App extends Component {
 
   setWeather = (weatherData, condition, temp, wind) => {
     this.setState({
-      weatherData:{
-      data: weatherData,
-      condition: condition,
-      temp: temp,
-      wind: wind
+      weatherData: {
+        data: weatherData,
+        condition: condition,
+        temp: temp,
+        wind: wind
       }
     });
   };
@@ -89,6 +89,7 @@ class App extends Component {
   };
 
   storeName = event => {
+    localStorage.setItem('storedUserName', this.state.newUserName);
     event.preventDefault();
     this.setState({
       storedUserName: this.state.newUserName,
@@ -97,6 +98,7 @@ class App extends Component {
   };
 
   resetStoredName = () => {
+    localStorage.clear();
     this.setState({
       storedUserName: ''
     });
