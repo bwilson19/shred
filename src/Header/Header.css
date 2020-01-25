@@ -53,10 +53,9 @@ header li:hover {
   right: 0;
   background-color: white;
   padding: 2rem;
-  border-top: 18px solid rgb(54, 54, 54, 1);
-  border-right: 20px solid rgb(54, 54, 54, 1);
-  border-left: 20px solid rgb(54, 54, 54, 1);
-  border-bottom: 20px solid rgb(54, 54, 54, 1);
+  border-left: 2px solid rgb(54, 54, 54, 1);
+  border-bottom: 2px solid rgb(54, 54, 54, 1);
+  box-shadow: 10px 10px 100vw 100vw rgba(0, 0, 0, 0.7);
 }
 
 #loginWindow input {
