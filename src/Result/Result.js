@@ -115,19 +115,28 @@ class Result extends Component {
             <h2>{region}</h2>
             <ul>
               {resort.opening_year && (
-                <li> Resort Opened: {resort.opening_year}</li>
+                <li> Resort Opened in {resort.opening_year}</li>
               )}
               {resort.top_elevation && (
-                <li>Peak Elevation: {resort.top_elevation}</li>
+                <li>
+                  Peak Elevation: {Math.floor(resort.top_elevation * 3.28084)}'
+                </li>
               )}
-              {resort.longest_run && <li>Longest Run: {resort.longest_run}</li>}
+              {resort.longest_run && (
+                <li>
+                  Longest Run: {Math.floor(resort.longest_run * 3.28084)}'
+                </li>
+              )}
               {resort.run_count && <li>Runs: {resort.run_count}</li>}
-              {resort.lift_count && <li>Lifts: {resort.lift_count} </li>}
+              {resort.lift_count && <li>Chair Lifts: {resort.lift_count} </li>}
               {resort.skiable_acreage && (
-                <li>Acres: {resort.skiable_acreage} </li>
+                <li>Skiable Area: {resort.skiable_acreage} Acres </li>
               )}
               {resort.annual_snowfall && (
-                <li>Average Yearly Snowfall: {resort.annual_snowfall}</li>
+                <li>
+                  Average Yearly Snowfall:{' '}
+                  {Math.floor(resort.annual_snowfall * 0.393701)}"
+                </li>
               )}
             </ul>
             {resort.official_website && (
