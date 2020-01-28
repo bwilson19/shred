@@ -37,3 +37,18 @@ main {
   -webkit-text-fill-color: transparent;
 }
 
+/* Portrait */
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: portrait) {
+  .searchInfo h1 {
+    font-size: 4rem;
+  }
+}
+
+/* Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
+  .searchInfo h1 {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+  
+}

@@ -33,3 +33,22 @@
   flex-direction: column;
   align-items: center;
 }
+
+/* Portrait */
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: portrait) {
+  .resultsList {
+  padding: 1rem 1rem;
+  font-size: .8rem;
+}
+
+.resultsWindow {
+  width: 100vw;
+}
+}
+
+/* Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
+  .resultsWindow {
+  width: 100vw;
+}
+}

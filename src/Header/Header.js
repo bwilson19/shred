@@ -34,7 +34,11 @@ class Header extends Component {
               <Link to="/">
                 <li>Search</li>
               </Link>
-              <li onClick={this.loginToggle}>Login</li>
+              <li onClick={this.loginToggle}>
+                {this.props.storedUserName
+                  ? this.props.storedUserName
+                  : 'Login'}
+              </li>
             </ul>
           </nav>
         </header>

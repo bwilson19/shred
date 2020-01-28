@@ -78,3 +78,31 @@ button {
   display: flex;
   flex-direction: column;
 }
+
+/* Portrait */
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: portrait) {
+  .searchWindow {
+    font-size: 0.7rem;
+  }
+  input {
+    font-size: 0.7rem;
+    width: 60vw;
+  }
+  input::placeholder {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.7rem;
+  }
+
+  button {
+    margin-left: 0rem;
+    margin-top: 1rem;
+  }
+}
+
+/* Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
+  .searchInfo h1 {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+}
