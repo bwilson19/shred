@@ -81,7 +81,7 @@
 }
 
 .weatherWindow {
-  background-color: rgb(180, 180, 180);
+  background-color: rgb(62, 188, 230);
   width: 70vw;
   padding: 2rem;
   font-size: 1rem;
@@ -208,6 +208,10 @@ th {
   .weatherContent {
     display: flex;
     flex-direction: column;
+  }
+
+  .weatherContent h1 {
+    font-size: 1rem;
   }
 
   .currentCondition {
