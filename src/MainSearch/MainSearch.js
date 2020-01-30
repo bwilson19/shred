@@ -37,8 +37,8 @@ class MainSearch extends Component {
               )}
               {this.props.currentResults.length === 0 && (
                 <p>
-                  0 results found, please update your search to a region
-                  ("California") or the name of the resort ("Squaw Valley").
+                  0 results found, please update your search to a region (ex.
+                  "California") or the name of the resort (ex. "Squaw Valley").
                 </p>
               )}
             </form>

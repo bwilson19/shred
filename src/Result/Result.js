@@ -152,7 +152,6 @@ class Result extends Component {
         </div>
         {this.props.weatherData && (
           <div className="weatherWindow">
-            
             <div className="weatherContent">
               <div>
                 <h1>Current Weather (Updated {convertedTime})</h1>
